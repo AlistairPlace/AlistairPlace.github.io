@@ -3,6 +3,7 @@
     --black: #333333;
     --color: #336CE7;
     --trim:  #5ee06c;
+    --header: #030318;
 }
 
 @font-face {
@@ -23,19 +24,21 @@ html {
 }
 
 p {
+    font-size: clamp(1rem, 1.5vw, 1.125rem); /* 16px → scales up to ~18px */
     color: var(--black);
 }
 
 a {
-    text-decoration: none;
+    font-size: clamp(1.1rem, 1.8vw, 1.2rem); /* ~18px → ~19.2px */
+    color: var(--trim);
 }
 
 body {
-    font-size: 18px;
     margin: 0;
 }   
 
 h1 {
+    font-size: clamp(2rem, 5vw, 3rem); /* 32px → 48px */
     margin-top: 100px;
     font-size: 2em;
     text-align: center;
@@ -44,21 +47,30 @@ h1 {
 }
 
 h2 {
-    font-size: 1.5em;
+    font-size: clamp(1.25rem, 3vw, 1.5rem); /* 24px → 36px */
     text-align: center;
     color: var(--color);
 
 }
 
 h3 {
+    font-size: clamp(1rem, 2.5vw, 1.25rem); /* 16px → 20px */
     color: var(--color);
-    text-align: left;
+    text-align: center;
 }
 
 h4 {
-    font-size: 1.3em;
+    font-size: clamp(1.1rem, 2vw, 1.5rem); /* ~18px → 24px */
     text-align: center;
     color: var(--white);
+}
+
+hr {
+    border: none;
+    background-color: var(--trim);
+    height: 2px;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 li .menu {
@@ -144,16 +156,20 @@ li.active a:hover {
 
 .imgColumn {
     position: relative;
-    float: left;
     width: 33.33%;
     padding: 5px;
-}
+}   
 
 .imgColumn .image {
-    width: 100%;
     aspect-ratio: 1.5;
     object-fit: cover;
     border: 1px solid var(--white);
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .imgColumn:hover .image {
@@ -175,6 +191,10 @@ li.active a:hover {
     text-align: center;
 }
 
+.middle a {
+    text-decoration: none;
+}
+
 .image {
     opacity: 1;
     display: block;
@@ -189,11 +209,10 @@ li.active a:hover {
     justify-content: center;
 }
   
-
 .text {
     background-color: var(--color);
     color: var(--white);
-    font-size: 16px;
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
     padding: 16px 32px;
 }
   
@@ -204,6 +223,7 @@ li.active a:hover {
 }
 
 header {
+    background-color: var(--header);
     height: 500px;
 }
 
@@ -222,7 +242,7 @@ progress::-webkit-progress-value {
 }
 
 .margin {
-    margin: 0px 70px 50px 70px;
+    margin: 0px 250px 50px 250px;
 }
 
 .black {
@@ -344,5 +364,5 @@ footer p{
     margin-bottom: 0px;
     padding-left: 0.5em;
     color: var(--black);
-    background-color: var(--white);
+    background-color: var(--trim);
 }
